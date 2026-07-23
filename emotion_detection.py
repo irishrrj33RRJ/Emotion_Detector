@@ -13,4 +13,19 @@ input_json = {
 }
 
 response = requests.post(url, json=input_json, headers = headers)
+
+if response.status_code == 400:
+  return {
+  'anger': None,
+  'disgust': None,
+  'fear': None,
+  'joy': None,
+  'sadness': None,
+  'dominant_emotion': None
+}
+
+formatted_response = response.json(){'emotionPredictions'][0]['emotion']
+dominant_emotion = max(formatted_response, key = formatted_response.get)
+formatted_response['dominant_emotion'] = dominant_emotion
+
 return response.json()
