@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from EmotionDetection.emotion_detection import emotion_detector
+from emotion_detection import emotion_detector
 
 app = Flask('Emotion Detector')
 
@@ -21,9 +21,9 @@ def sent_detector():
     f"'disgust': {response['disgust']}, "
     f"'fear': {response['fear']}, "
     f"'joy': {response['joy']}, "
-    f"'sadness': {response{'sadess']}, "
+    f"'sadness': {response['sadess']}, "
     f"The dominant emotion is {response['dominant_emotion']}."
   )
 
-if _name__ == '__main__':
+if __name__ == "__main__":
   app.run(host = '0.0.0.0', port = 5000)
